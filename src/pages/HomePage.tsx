@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+
 import styles from './HomePage.module.css';
-import PageNav from '../components/PageNav';
+
+import PageNav from '../components/navs/PageNav';
 
 function HomePage() {
   return (

@@ -1,3 +1,60 @@
+////////////////////////////////////////////
+// Context Types
+
+export type CitiesContextType = {
+  cities: ICity[];
+  isLoading: boolean;
+  currentCity: ICity | null;
+  error: string;
+  getCity(id: string): void;
+  createCity(newCity: ICityPost): void;
+  deleteCity(id: number): void;
+};
+
+export type CitiesReducerType = {
+  cities: ICity[];
+  isLoading: boolean;
+  currentCity: ICity | null;
+  error: string;
+};
+
+export type Action =
+  | {
+      type: ActionType.Loading;
+    }
+  | {
+      type: ActionType.CitiesLoaded;
+      payload: ICity[];
+    }
+  | {
+      type: ActionType.CityCreated;
+      payload: ICity;
+    }
+  | {
+      type: ActionType.CityDeleted;
+      payload: number;
+    }
+  | {
+      type: ActionType.Rejected;
+      payload: string;
+    }
+  | {
+      type: ActionType.CityLoaded;
+      payload: ICity;
+    };
+
+export enum ActionType {
+  Loading = 'loading',
+  CitiesLoaded = 'cities/loaded',
+  CityCreated = 'cities/created',
+  CityDeleted = 'cities/deleted',
+  Rejected = 'rejected',
+  CityLoaded = 'city/loaded',
+}
+
+////////////////////////////////////////////
+// City/Country Types
+
 export interface ICity {
   cityName: string;
   country: string;

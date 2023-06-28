@@ -61,18 +61,6 @@
       "id": 98443199
     },
     {
-      "cityName": "Greater London",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "date": "Tue Jun 27 2023",
-      "emoji": "🇬🇧",
-      "notes": "test",
-      "position": {
-        "lat": 51.50532341149335,
-        "lng": -0.12634277343750003
-      },
-      "id": 98443203
-    },
-    {
       "cityName": "Reykjavik",
       "country": "Iceland",
       "date": "Tue Jun 27 2023",
@@ -83,6 +71,30 @@
         "lng": -21.950683593750004
       },
       "id": 98443206
+    },
+    {
+      "cityName": "Loporzano",
+      "country": "Spain",
+      "date": "Wed Jun 28 2023",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": 42.147114459221015,
+        "lng": -0.32958984375000006
+      },
+      "id": 98443207
+    },
+    {
+      "cityName": "Luxembourg",
+      "country": "Luxembourg",
+      "date": "Wed Jun 28 2023",
+      "emoji": "🇱🇺",
+      "notes": "test",
+      "position": {
+        "lat": 49.62494564650146,
+        "lng": 6.130371093750001
+      },
+      "id": 98443208
     }
   ]
 }

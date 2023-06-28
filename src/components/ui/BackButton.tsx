@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import { ButtonType } from '../types/types';
+import { ButtonType } from '../../types/types';
+
 import Button from './Button';
 
 export default function BackButton() {

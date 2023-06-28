@@ -1,19 +1,13 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import styles from './City.module.css';
+import { formatDate } from '../utils/utils';
 import { useCities } from '../hooks/useCities';
-import Message from './Message';
-import Spinner from './Spinner';
-import BackButton from './BackButton';
 
-const formatDate = (date: string | null) =>
-  new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    weekday: 'long',
-  }).format(new Date(date ? date : ''));
+import styles from './City.module.css';
+import Message from './Message';
+import Spinner from './ui/Spinner';
+import BackButton from './ui/BackButton';
 
 function City() {
   const { id } = useParams();
@@ -41,7 +35,7 @@ function City() {
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date || null)}</p>
+        <p>{formatDate(date)}</p>
       </div>
 
       {notes && (

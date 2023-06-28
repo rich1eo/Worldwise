@@ -16,7 +16,7 @@ import { useGeolocation } from '../hooks/useGeolocation';
 import { useUrlPosition } from '../hooks/useUrlPosition';
 
 import styles from './Map.module.css';
-import Button from './Button';
+import Button from './ui/Button';
 
 export default function Map() {
   const { cities } = useCities();

@@ -10,10 +10,10 @@ import { useCities } from '../hooks/useCities';
 
 import styles from './Form.module.css';
 
-import Button from './Button';
-import BackButton from './BackButton';
+import Button from './ui/Button';
+import BackButton from './ui/BackButton';
 import Message from './Message';
-import Spinner from './Spinner';
+import Spinner from './ui/Spinner';
 import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
