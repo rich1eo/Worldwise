@@ -1,5 +1,5 @@
 ////////////////////////////////////////////
-// Context Types
+// Cities Context Types
 
 export type CitiesContextType = {
   cities: ICity[];
@@ -18,38 +18,75 @@ export type CitiesReducerType = {
   error: string;
 };
 
-export type Action =
+export type CitiesAction =
   | {
-      type: ActionType.Loading;
+      type: CitiesActionType.Loading;
     }
   | {
-      type: ActionType.CitiesLoaded;
+      type: CitiesActionType.CitiesLoaded;
       payload: ICity[];
     }
   | {
-      type: ActionType.CityCreated;
+      type: CitiesActionType.CityCreated;
       payload: ICity;
     }
   | {
-      type: ActionType.CityDeleted;
+      type: CitiesActionType.CityDeleted;
       payload: number;
     }
   | {
-      type: ActionType.Rejected;
+      type: CitiesActionType.Rejected;
       payload: string;
     }
   | {
-      type: ActionType.CityLoaded;
+      type: CitiesActionType.CityLoaded;
       payload: ICity;
     };
 
-export enum ActionType {
+export enum CitiesActionType {
   Loading = 'loading',
   CitiesLoaded = 'cities/loaded',
   CityCreated = 'cities/created',
   CityDeleted = 'cities/deleted',
   Rejected = 'rejected',
   CityLoaded = 'city/loaded',
+}
+
+////////////////////////////////////////////
+// Auth Context Types
+
+export type AuthContextType = {
+  user: IUser | null;
+  isAuthenticated: boolean;
+  login(email: string, password: string): void;
+  logout(): void;
+};
+
+export type AuthStateType = {
+  user: IUser | null;
+  isAuthenticated: boolean;
+};
+
+export type AuthAction =
+  | {
+      type: AuthActionType.Login;
+      payload: IUser;
+    }
+  | { type: AuthActionType.Logout };
+
+export enum AuthActionType {
+  Login = 'login',
+  Logout = 'logout',
+}
+
+////////////////////////////////////////////
+// User Types
+
+export interface IUser {
+  name: string;
+  email: string;
+  password: string;
+  avatar: string;
 }
 
 ////////////////////////////////////////////
@@ -98,6 +135,7 @@ export enum ButtonType {
 
 ////////////////////////////////////////////
 // Form Country Fetch Data
+
 export interface IFetchCountry {
   latitude: number;
   longitude: number;

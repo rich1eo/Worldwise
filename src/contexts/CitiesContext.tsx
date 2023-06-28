@@ -1,12 +1,12 @@
 import { ReactNode, createContext, useEffect, useReducer } from 'react';
 
 import {
-  Action,
+  CitiesAction,
   CitiesContextType,
   ICity,
   ICityPost,
   CitiesReducerType,
-  ActionType,
+  CitiesActionType,
 } from '../types/types';
 
 const BASE_URL = 'http://localhost:8000';
@@ -20,29 +20,32 @@ const initialState: CitiesReducerType = {
   error: '',
 };
 
-function reducer(state: CitiesReducerType, action: Action): CitiesReducerType {
+function reducer(
+  state: CitiesReducerType,
+  action: CitiesAction
+): CitiesReducerType {
   switch (action.type) {
-    case ActionType.Loading:
+    case CitiesActionType.Loading:
       return {
         ...state,
         isLoading: true,
       };
 
-    case ActionType.Rejected:
+    case CitiesActionType.Rejected:
       return {
         ...state,
         isLoading: false,
         error: action.payload,
       };
 
-    case ActionType.CitiesLoaded:
+    case CitiesActionType.CitiesLoaded:
       return {
         ...state,
         isLoading: false,
         cities: action.payload,
       };
 
-    case ActionType.CityCreated:
+    case CitiesActionType.CityCreated:
       return {
         ...state,
         isLoading: false,
@@ -50,7 +53,7 @@ function reducer(state: CitiesReducerType, action: Action): CitiesReducerType {
         currentCity: action.payload,
       };
 
-    case ActionType.CityDeleted:
+    case CitiesActionType.CityDeleted:
       return {
         ...state,
         isLoading: false,
@@ -58,7 +61,7 @@ function reducer(state: CitiesReducerType, action: Action): CitiesReducerType {
         currentCity: null,
       };
 
-    case ActionType.CityLoaded:
+    case CitiesActionType.CityLoaded:
       return {
         ...state,
         isLoading: false,
@@ -78,17 +81,17 @@ export function CitiesProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function fetchCities() {
-      dispatch({ type: ActionType.Loading });
+      dispatch({ type: CitiesActionType.Loading });
 
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         if (!res.ok) throw new Error();
 
         const data: ICity[] = await res.json();
-        dispatch({ type: ActionType.CitiesLoaded, payload: data });
+        dispatch({ type: CitiesActionType.CitiesLoaded, payload: data });
       } catch (err) {
         dispatch({
-          type: ActionType.Rejected,
+          type: CitiesActionType.Rejected,
           payload: 'There was an error loading data',
         });
       }
@@ -99,24 +102,24 @@ export function CitiesProvider({ children }: { children: ReactNode }) {
   async function getCity(id: string) {
     if (Number(id) === currentCity?.id) return;
 
-    dispatch({ type: ActionType.Loading });
+    dispatch({ type: CitiesActionType.Loading });
 
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
       if (!res.ok) throw new Error();
 
       const data: ICity = await res.json();
-      dispatch({ type: ActionType.CityLoaded, payload: data });
+      dispatch({ type: CitiesActionType.CityLoaded, payload: data });
     } catch (err) {
       dispatch({
-        type: ActionType.Rejected,
+        type: CitiesActionType.Rejected,
         payload: 'Fetch Current City Failed!',
       });
     }
   }
 
   async function createCity(newCity: ICityPost) {
-    dispatch({ type: ActionType.Loading });
+    dispatch({ type: CitiesActionType.Loading });
 
     try {
       const res = await fetch(`${BASE_URL}/cities`, {
@@ -129,27 +132,27 @@ export function CitiesProvider({ children }: { children: ReactNode }) {
       if (!res.ok) throw new Error();
 
       const data: ICity = await res.json();
-      dispatch({ type: ActionType.CityCreated, payload: data });
+      dispatch({ type: CitiesActionType.CityCreated, payload: data });
     } catch (err) {
       dispatch({
-        type: ActionType.Rejected,
+        type: CitiesActionType.Rejected,
         payload: 'Failed create a new city 😔',
       });
     }
   }
 
   async function deleteCity(id: number) {
-    dispatch({ type: ActionType.Loading });
+    dispatch({ type: CitiesActionType.Loading });
 
     try {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: 'DELETE',
       });
 
-      dispatch({ type: ActionType.CityDeleted, payload: id });
+      dispatch({ type: CitiesActionType.CityDeleted, payload: id });
     } catch {
       dispatch({
-        type: ActionType.Rejected,
+        type: CitiesActionType.Rejected,
         payload: 'There was an error during deleting city',
       });
     }
