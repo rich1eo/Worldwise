@@ -2,7 +2,7 @@ import styles from './CountryList.module.css';
 import { useCities } from '../hooks/useCities';
 import { ICity, ICountry } from '../types/types';
 
-import Spinner from './Spinner';
+import Spinner from './ui/Spinner';
 import CountryItem from './CountryItem';
 import Message from './Message';
 
