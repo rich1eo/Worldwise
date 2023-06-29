@@ -1,7 +1,17 @@
+import { useEffect } from 'react';
+
 import styles from './Product.module.css';
 import PageNav from '../components/navs/PageNav';
 
 export default function Product() {
+  useEffect(() => {
+    document.title = 'Product | WorldWise';
+
+    return () => {
+      document.title = 'WorldWise';
+    };
+  }, []);
+
   return (
     <main className={styles.product}>
       <PageNav />

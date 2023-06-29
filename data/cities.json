@@ -95,6 +95,18 @@
         "lng": 6.130371093750001
       },
       "id": 98443208
+    },
+    {
+      "cityName": "Tallinn",
+      "country": "Estonia",
+      "date": "Wed Jun 28 2023",
+      "emoji": "🇪🇪",
+      "notes": "Test\n",
+      "position": {
+        "lat": 59.43390314475794,
+        "lng": 24.763183593750004
+      },
+      "id": 98443209
     }
   ]
 }

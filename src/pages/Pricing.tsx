@@ -1,8 +1,18 @@
+import { useEffect } from 'react';
+
 // Uses the same styles as Product
 import PageNav from '../components/navs/PageNav';
 import styles from './Product.module.css';
 
 export default function Pricing() {
+  useEffect(() => {
+    document.title = 'Pricing | WorldWise';
+
+    return () => {
+      document.title = 'WorldWise';
+    };
+  }, []);
+
   return (
     <main className={styles.product}>
       <PageNav />

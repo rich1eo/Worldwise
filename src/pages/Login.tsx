@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import { ButtonType } from '../types/types';
 import { useAuth } from '../hooks/useAuth';
 
 import styles from './Login.module.css';
 import PageNav from '../components/navs/PageNav';
 import Button from '../components/ui/Button';
-import { ButtonType } from '../types/types';
-import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const { isAuthenticated, login } = useAuth();
@@ -14,6 +14,14 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('jack@example.com');
   const [password, setPassword] = useState('qwerty');
+
+  useEffect(() => {
+    document.title = 'Login | WorldWise';
+
+    return () => {
+      document.title = 'WorldWise';
+    };
+  }, []);
 
   useEffect(() => {
     if (isAuthenticated) {
