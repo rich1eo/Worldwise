@@ -1,19 +1,26 @@
 # Worldwise
+
 Track your own adventures.
 
 Features:
-  - pin places on the map, where you were!
-  - get detail information about places you pin!
-  - pinned places collected into lists of cities and counties!
 
-[Live demo]()
+- pin places on the map, where you were!
+- get detail information about places you pin!
+- pinned places collected into lists of cities and counties!
 
 This project is build with:
+
 - [React](https://react.dev)
-- [Leaflet](https://leafletjs.com)
 - [TypeScript](https://www.typescriptlang.org)
 - [Vite](https://vitejs.dev)
 - [Hosted by Netlify](https://www.netlify.com)
+
+React third-party packeges:
+
+- [React router](https://reactrouter.com/en/main)
+- [Leaflet](https://leafletjs.com)
+- [Json-server](https://www.npmjs.com/package/json-server)
+- [React-datepicker](https://www.npmjs.com/package/react-datepicker)
 
 ## Available Scripts
 

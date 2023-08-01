@@ -107,6 +107,18 @@
         "lng": 24.763183593750004
       },
       "id": 98443209
+    },
+    {
+      "cityName": "Moscow",
+      "country": "Russian Federation (the)",
+      "date": "Tue Aug 01 2023",
+      "emoji": "🇷🇺",
+      "notes": "",
+      "position": {
+        "lat": 55.7487578359952,
+        "lng": 37.61718750000001
+      },
+      "id": 98443210
     }
   ]
 }
